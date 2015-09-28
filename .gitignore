@@ -1,4 +1,8 @@
 db.sqlite3
 manage.py
 *.pyc
+
+bower_components
+node_modules
+
 *.ttf
