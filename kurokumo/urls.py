@@ -18,4 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^$', 'kurokumo.views.index.index'),
+    url(r'^logout/$', 'kurokumo.views.logout.logout'),
 ]
