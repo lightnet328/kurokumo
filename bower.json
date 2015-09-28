@@ -1,0 +1,19 @@
+{
+  "name": "kurokumo",
+  "version": "1.0.0",
+  "authors": [
+    "lightnet328 <lightnet328@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://lightnet328.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "pure": "~0.6.0"
+  }
+}
