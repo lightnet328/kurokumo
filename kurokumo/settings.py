@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'kurokumo',
     'social.apps.django_app.default',
+    'kumo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,3 +121,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# MeCab
+# e.g. dictionary path = /usr/local/Cellar/mecab/0.996/lib/mecab/dic/mecab-ipadic-neologd/
+
+MECAB = {
+    'ARGUMENT': '-Owakati -d dictionary path'
+}
+
+
+# Font
+
+FONT_PATH = 'font path'
+

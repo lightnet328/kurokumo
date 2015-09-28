@@ -21,5 +21,8 @@
       {% endif %}
     </ul>
     </p>
+    {% if user and not user.is_anonymous %}
+      <img src="data:image/png;base64,{{image}}" />
+    {% endif %}
   </div>
 {% endblock body %}
