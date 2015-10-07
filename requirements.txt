@@ -1,0 +1,6 @@
+Django==1.8.4
+matplotlib==1.4.3
+mecab-python3==0.7
+python-social-auth==0.2.12
+twitter==1.17.1
+wordcloud==1.1.3
