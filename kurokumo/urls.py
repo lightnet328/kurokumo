@@ -21,4 +21,5 @@ urlpatterns = [
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^$', 'kurokumo.views.index.index'),
     url(r'^logout/$', 'kurokumo.views.logout.logout'),
+    url(r'^tweet/$', 'kurokumo.views.tweet.tweet'),
 ]
