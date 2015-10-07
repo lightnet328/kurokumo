@@ -1,0 +1,74 @@
+/* from pure/buttons.css */
+
+$grey: #E6E6E6;
+$blue: #4aa3df;
+$red: #e74c3c;
+
+.button {
+  /* Structure */
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*csslint outline-none:false*/
+
+.button {
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0.5em 1em;
+  color: #444; /* rgba not supported (IE 8) */
+  color: rgba(0, 0, 0, 0.80); /* rgba supported */
+  border: 1px solid #999;  /*IE 6/7/8*/
+  border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+  background-color: $grey;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button:hover,
+.button:focus {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a000000', endColorstr='#1a000000', GradientType=0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0, 0.10)), to(rgba(0,0,0, 0.10)));
+  background-image: -webkit-linear-gradient(rgba(0,0,0, 0.10), rgba(0,0,0, 0.10));
+  background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.10), rgba(0,0,0, 0.10));
+  background-image: -o-linear-gradient(rgba(0,0,0, 0.10), rgba(0,0,0, 0.10));
+  background-image: linear-gradient(rgba(0,0,0, 0.10), rgba(0,0,0, 0.10));
+}
+
+.button--size_large {
+  padding: 0.8em 1.6em;
+}
+
+
+.button--color_blue {
+  background-color: $blue;
+  color: #ffffff;
+}
+
+.button--color_red {
+  background-color: $red;
+  color: #ffffff;
+}

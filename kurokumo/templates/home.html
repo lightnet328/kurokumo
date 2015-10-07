@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}クロクモ{% endblock title %}
+
+{% block page__contents %}
+  {% if image %}
+  <div class="page--result page--result_success">
+    <h2 class="contents--title">{{ user.get_full_name|default:user.username }} さんのワードクラウド</h2>
+    <img class="pure-image wordcloud" src="data:image/png;base64,{{image}}" />
+    <form class="pure-form tweet-form" action="/tweet/" method="post">
+      <fieldset>
+          <legend>ワードクラウドをツイート</legend>
+
+          {% csrf_token %}
+          <textarea class="tweet-box" name="tweet" placeholder="">クロクモでワードクラウドを作りました！ #kurokumo http://kumo.lightnet328.com/</textarea>
+
+          <button type="submit" class="button button--color_blue">結果をツイート</button>
+      </fieldset>
+  </form>
+  </div>
+  {% endif %}
+{% endblock page__contents %}

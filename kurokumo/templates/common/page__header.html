@@ -1,0 +1,19 @@
+<header class="page__header">
+  <div class="header__inner cf">
+    <h1 class="page__title"><a href="/">クロクモ</a></h1>
+    <div class="page__navigation">
+      {% if login %}
+        <a class="button button--color_red" href="/logout">ログアウト</a>
+      {% else %}
+        <a class="button button--color_blue" href="{% url 'social:begin' 'twitter' %}">Twitterでログインしてつくる</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+{% if login %}
+<div class="page__hero page__hero__state_bar">
+{% else %}
+<div class="page__hero">
+{% endif %}
+</div>

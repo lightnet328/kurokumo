@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
-    {% block head %}
-    {% endblock %}
+    <link rel="stylesheet" href="{{STATIC_URL}}styles/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% block head %}{% endblock %}
   </head>
   <body>
-    {% block body %}
-    {% endblock %}
+    <div class="page__outer">
+      {% include "common/page__header.html" %}
+
+      <div class="page__contents">
+        <div class="page__contents__inner">
+          {% block page__contents %}{% endblock %}
+        </div>
+      </div>
+
+      {% include "common/page__footer.html" %}
+    </div>
   </body>
 </html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}クロクモ{% endblock title %}
+
+{% block page__contents %}
+  <div class="page--result page--result_success">
+    <h2 class="contents--title">ツイートしました</h2>
+    {% if protected %}
+      <a href="https://twitter.com/{{ screen_name }}/status/{{ status_id }}">https://twitter.com/{{ screen_name }}/status/{{ status_id }}</a>
+    {% else %}
+      {{ oembed }}
+    {% endif %}
+  </form>
+  </div>
+{% endblock page__contents %}
