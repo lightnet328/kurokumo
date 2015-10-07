@@ -151,5 +151,5 @@ class Kumo:
         image = self._wordcloud.to_image()
         output = io.BytesIO()
         image.save(output, "png")
-        encoded_image = base64.b64encode(output.getvalue())
+        encoded_image = base64.b64encode(output.getvalue()).decode('utf-8')
         return encoded_image
