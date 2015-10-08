@@ -1,5 +1,4 @@
 db.sqlite3
-manage.py
 *.pyc
 
 bower_components
