@@ -8,7 +8,7 @@
     {% if protected %}
       <a href="https://twitter.com/{{ screen_name }}/status/{{ status_id }}">https://twitter.com/{{ screen_name }}/status/{{ status_id }}</a>
     {% else %}
-      {{ oembed }}
+      {{ oembed.html | safe }}
     {% endif %}
   </form>
   </div>
