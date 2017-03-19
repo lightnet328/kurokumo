@@ -10,7 +10,7 @@ Features
 
 Requirements
 ------------
-* Python 3.4.3
+* Python 3.6.0
 * MeCab
 * mecab-ipadic-neologd
 * Gulp
@@ -18,7 +18,7 @@ Requirements
 
 Preparation
 -----------
-* Install Python 3.4.3
+* Install Python 3.6.0
 * Install MeCab
 * Install mecab-ipadic-neologd
 * Install Gulp (needs to compile sass)
@@ -31,13 +31,6 @@ Install Kurokumo
 ::
 
     pip install https://github.com/lightnet328/kurokumo
-
-If such an error has occurred, try the following command
-::
-
-    wget -nc -P /tmp http://bugs.python.org/file25808/14894.patch
-    patch -p3 -f -d (your python path)/distutils < /tmp/14894.patch
-e.g. /usr/local/lib/python3.4/, /usr/local/pyenv/versions/3.4.3/lib/python3.4
 
 Configure
 ~~~~~~~~~
