@@ -5,10 +5,11 @@ from twitter import *
 import MeCab
 from kumo.kumo import Kumo
 from django.views.decorators.csrf import csrf_protect
+from django.core.cache import cache
 
 @csrf_protect
 def tweet(request):
-    if request.user.is_authenticated() and request.method == "POST":
+    if request.user.is_authenticated() and cache.get(request.session.session_key) is not None and request.method == "POST":
         social = request.user.social_auth.get(provider='twitter')
         access_token = social.extra_data['access_token']
         oauth_token = access_token['oauth_token']
@@ -22,7 +23,7 @@ def tweet(request):
         )
 
         tm = Twitter(domain='upload.twitter.com', auth=authentication)
-        image = request.session['image']
+        image = cache.get(request.session.session_key)
         media_id = tm.media.upload(media_data=image)["media_id_string"]
 
         t = Twitter(auth=authentication)
@@ -34,6 +35,7 @@ def tweet(request):
             oembed = t.statuses.oembed(_id=status["id"], hide_media=False)
             context = {"oembed": oembed}
         context.update({"login": True, "protected": status["user"]["protected"]})
+        cache.delete(request.session.session_key)
         request.session.clear()
 
         return render(request, 'tweet.html', context)

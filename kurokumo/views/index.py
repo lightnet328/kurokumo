@@ -5,11 +5,12 @@ from twitter import *
 import MeCab
 from kumo.kumo import Kumo
 from django.views.decorators.csrf import csrf_protect
+from django.core.cache import cache
 
 @csrf_protect
 def index(request):
     if request.user.is_authenticated():
-        if request.session.get("image") is None:
+        if cache.get(request.session.session_key) is None:
             social = request.user.social_auth.get(provider='twitter')
             access_token = social.extra_data['access_token']
             oauth_token = access_token['oauth_token']
@@ -27,8 +28,8 @@ def index(request):
             kumo = Kumo(twitter=t, mecab= mc)
             kumo.generate({"font_path": settings.FONT_PATH})
             image = kumo.to_encoded_image()
-            request.session['image'] = image
-        context = {"image": request.session["image"], "login": True}
+            cache.set(request.session.session_key, image)
+        context = {"image": cache.get(request.session.session_key), "login": True}
         return render(request, 'home.html', RequestContext(request, context))
     else:
         context = {"login": False}
