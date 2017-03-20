@@ -22,6 +22,8 @@ gulp.task("sass", function() {
         .pipe(browser.reload({stream:true}))
 });
 
+gulp.task("build", ["sass"]);
+
 gulp.task("default", ['server'], function() {
     gulp.watch("kurokumo/static/styles/*.scss", ["sass"]);
 });
