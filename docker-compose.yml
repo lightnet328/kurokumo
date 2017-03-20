@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    expose:
+      - 8000
+    command: gunicorn kurokumo.wsgi -b 0.0.0.0:8000 --reload
+    volumes:
+      - .:/var/www
+    links:
+      - memcached
+    restart: always
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/:/etc/nginx/
+    volumes_from:
+      - web
+    links:
+      - web:web
+    environment:
+      VIRTUAL_HOST: kumo.lightnet328.com
+      LETSENCRYPT_HOST: kumo.lightnet328.com
+      LETSENCRYPT_EMAIL: lightnet328@gmail.com
+    restart: always
+
+  memcached:
+    image: memcached
+    restart: always
+
+networks:
+  default:
+    external:
+      name: shared
