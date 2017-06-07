@@ -1,12 +1,12 @@
 ========
 kurokumo
 ========
-Web application to create a wordcloud from Twitter.
+Web application that creates a wordcloud from User Tweet.
 
 Features
 --------
 * Create a wordcloud from Twitter
-* Post to created wordcloud
+* Post created wordcloud to Twitter
 
 Requirements
 ------------
@@ -32,7 +32,7 @@ Install Kurokumo
 
     pip install https://github.com/lightnet328/kurokumo
 
-If such an error has occurred, try the following command
+If error has occurred, try the following command
 ::
 
     wget -nc -P /tmp http://bugs.python.org/file25808/14894.patch
@@ -85,4 +85,4 @@ MIT
 
 Copyright (c) 2015 lightnet328
 
-See LICENSE.txt
+See LICENSE
