@@ -37,8 +37,9 @@ Configure
 ::
 
     cd kurokumo/kurokumo
-    # Edit SECRET_KEY, SOCIAL_AUTH_TWITTER_KEY, SOCIAL_AUTH_TWITTER_SECRET, MECAB["ARGUMENT"], FONT_PATH
-    vi settings.py
+    cp .env.example .env
+    # Edit
+    vim .env
 
 Create database
 ~~~~~~~~~~~~~~~

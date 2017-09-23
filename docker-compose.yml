@@ -10,6 +10,7 @@ services:
       - .:/var/www
     links:
       - memcached
+    env_file: .env
     restart: always
 
   nginx:

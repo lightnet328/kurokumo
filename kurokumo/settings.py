@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import distutils.util
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_PATH = os.path.normpath(os.path.dirname(__file__))
@@ -25,9 +26,9 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 SECRET_KEY = 'secret key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = distutils.util.strtobool(os.environ["KUROKUMO_DEBUG"])
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,8 +90,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_TWITTER_KEY = 'consumer key'
-SOCIAL_AUTH_TWITTER_SECRET = 'consumer key secret'
+
+SOCIAL_AUTH_TWITTER_KEY = os.environ["KUROKUMO_TWITTER_KEY"]
+SOCIAL_AUTH_TWITTER_SECRET = os.environ["KUROKUMO_TWITTER_SECRET"]
 
 
 # Database
@@ -109,7 +111,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
+        'LOCATION': os.environ["KUROKUMO_MEMCACHED_HOST"],
     }
 }
 
@@ -117,9 +119,9 @@ CACHES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = os.environ["KUROKUMO_LANGUAGE_CODE"]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.environ["KUROKUMO_TIME_ZONE"]
 
 USE_I18N = True
 
@@ -138,13 +140,14 @@ STATIC_URL = '/static/'
 # e.g. dictionary path = /usr/local/Cellar/mecab/0.996/lib/mecab/dic/mecab-ipadic-neologd/
 
 MECAB = {
-    'ARGUMENT': '-Owakati -d dictionary path'
+    'ARGUMENT': os.environ["KUROKUMO_MECAB_ARGS"]
 }
 
 
 # Font
+# Used to generate the wordcloud
 
-FONT_PATH = 'font path'
+FONT_PATH = os.environ["KUROKUMO_FONT_PATH"]
 
 
 # Session
