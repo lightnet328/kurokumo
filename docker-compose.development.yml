@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    expose:
+      - 8000
+    command: gunicorn kurokumo.wsgi -b 0.0.0.0:8000 --reload
+    volumes:
+      - .:/var/www
+    links:
+      - memcached
+    env_file: .env
+    restart: always
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx/:/etc/nginx/
+    volumes_from:
+      - web
+    links:
+      - web
+    restart: always
+
+  memcached:
+    image: memcached
+    restart: always
