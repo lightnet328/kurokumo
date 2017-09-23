@@ -10,33 +10,22 @@ Features
 
 Requirements
 ------------
-* Python 3.6.0
-* MeCab
-* mecab-ipadic-neologd
-* Gulp
-* Bower
+* Docker
+* docker-compose
 
-Preparation
------------
-* Install Python 3.6.0
-* Install MeCab
-* Install mecab-ipadic-neologd
-* Install Gulp (needs to compile sass)
-* Install Bower (needs Pure)
-
-Installation
-------------
-Install Kurokumo
-~~~~~~~~~~~~~~~~
+Setup
+-----
+Clone
+~~~~~
 ::
 
-    pip install https://github.com/lightnet328/kurokumo
+    git clone https://github.com/lightnet328/kurokumo
 
 Configure
 ~~~~~~~~~
 ::
 
-    cd kurokumo/kurokumo
+    cd kurokumo
     cp .env.example .env
     # Edit
     vim .env
@@ -45,33 +34,14 @@ Create database
 ~~~~~~~~~~~~~~~
 ::
 
-    cd ../kurokumo
     python manage.py migrate
 
-Install npm packages
-~~~~~~~~~~~~~~~~~~~~
+Run
+~~~
 ::
 
-    npm install
-
-Install bower packages
-~~~~~~~~~~~~~~~~~~~~~~
-::
-
-    bower install
-
-Compile scss
-~~~~~~~~~~~~
-::
-
-    gulp sass
-
-Run server
-~~~~~~~~~~
-::
-
-    python manage.py runserver
-see http://127.0.0.1:8000
+    docker-compose -f docker-compose.development.yml up
+see http://127.0.0.1:8080
 
 License
 -------
