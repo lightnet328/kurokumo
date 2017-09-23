@@ -15,25 +15,26 @@ services:
 
   nginx:
     build: ./nginx
-    ports:
-      - 80:80
     volumes:
       - ./nginx/:/etc/nginx/
     volumes_from:
       - web
     links:
-      - web:web
-    environment:
-      VIRTUAL_HOST: kumo.lightnet328.com
-      LETSENCRYPT_HOST: kumo.lightnet328.com
-      LETSENCRYPT_EMAIL: lightnet328@gmail.com
+      - web
     restart: always
 
   memcached:
     image: memcached
     restart: always
 
-networks:
-  default:
-    external:
-      name: shared
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - nginx
+    environment:
+      STAGE: production
+      DOMAINS: 'kumo.lightnet328.com -> http://nginx'
+    restart: always
