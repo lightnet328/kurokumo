@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>クロクモ</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    <div class="page__outer">
+      <header class="page__header">
+        <div class="header__inner cf">
+          <h1 class="page__title"><a href="/">クロクモ</a></h1>
+          <div class="page__navigation">
+            <a class="button button--color_blue pure-button-disabled" href="#">Twitterでログインしてつくる</a>
+            <button class="button button--color_red">サービス終了しました</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="page__hero"></div>
+
+      <div class="page__contents">
+        <div class="page__contents__inner">
+          <div class="contents--feature">
+            <h2 class="feature--title">自分だけの雲を作ろう</h2>
+            <div class="pure-g">
+              <div class="feature--image pure-u-6-24">
+                <i class="material-icons cloud-icon">&#xE2BD;</i>
+              </div>
+              <div class="feature--description pure-u-18-24">
+                <p>クロクモはあなたのツイートからワードクラウドを作成できるWebサービスです。</p>
+                <p>例えば、こんなワードクラウドを作ることが出来ます。</p>
+                <img class="pure-image wordcloud" src="./images/wordcloud.png" />
+                <p>それでは、Twitterでログインしてワードクラウドを作ってみましょう！</p>
+                <a class="button button--color_blue pure-button-disabled" href="#">ログインしてつくる</a>
+              </div>
+            </div>
+          </div>
+          <div class="contents--feature">
+            <h2 class="feature--title">安心な設計</h2>
+            <div class="pure-g">
+              <div class="feature--image pure-u-6-24">
+                <i class="material-icons secure-icon">&#xE8E8;</i>
+              </div>
+              <div class="feature--description pure-u-18-24">
+                <p>クロクモはデータベースにTwitterアカウントを操作するための情報を保存しないので安全に利用することが出来ます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="contents--feature">
+            <h2 class="feature--title">オープンソース</h2>
+            <div class="pure-g">
+              <div class="feature--image pure-u-6-24">
+                <i class="material-icons open-icon">&#xE898;</i>
+              </div>
+              <div class="feature--description pure-u-18-24">
+                <p>クロクモのソースコードはGitHubに公開されており、MITライセンスの下で自由に利用することが出来ます。</p>
+                <p>
+                  <a href="https://github.com/lightnet328/kurokumo">GitHub - lightnet328/kurokumo</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="page--share">
+            <a
+              href="https://twitter.com/share"
+              class="twitter-share-button"
+              data-url="http://kumo.lightnet328.com/"
+              data-text="クロクモ - ワードクラウド作成サービス #kurokumo"
+              data-size="large"
+              >Tweet</a
+            >
+            <script>
+              !(function (d, s, id) {
+                var js,
+                  fjs = d.getElementsByTagName(s)[0],
+                  p = /^http:/.test(d.location) ? "http" : "https";
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + "://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              })(document, "script", "twitter-wjs");
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <footer class="page__footer">&copy; 2015 lightnet328.com.</footer>
+    </div>
+  </body>
+</html>
